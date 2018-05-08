@@ -50,6 +50,8 @@ NameError: name 'timezone' is not defined
 >>> from django.utils import timezone
 >>> Post.objects.filter(published_date__lte=timezone.now())
 <QuerySet [<Post: 타이틀>]>
->>>
-
+>>> Post.objects.filter(published_date__year='2018', published_date__month='05', published_date__day='08')
+<QuerySet [<Post: 타이틀>]>
+>>> Post.objects.filter(published_date__year='2018', published_date__month='05')
+<QuerySet [<Post: 제1회 인공지능 최근 기술 동향 강좌>, <Post: 타이틀>]>
 ~~~
