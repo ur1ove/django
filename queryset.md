@@ -42,5 +42,14 @@ blog.models.DoesNotExist: Post matching query does not exist.
 Traceback (most recent call last):
   File "<console>", line 1, in <module>
 AttributeError: 'Manager' object has no attribute 'get_object_or_404'
+>>> mypost.publish()
+>>> Post.objects.filter(published_date__lte=timezone.now())
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'timezone' is not defined
+>>> from django.utils import timezone
+>>> Post.objects.filter(published_date__lte=timezone.now())
+<QuerySet [<Post: 타이틀>]>
 >>>
+
 ~~~
